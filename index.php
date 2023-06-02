@@ -2,6 +2,7 @@
 
 require "functions.php";
 // require "route.php";
+require 'Database.php';
 
 $db = new Database();
 
