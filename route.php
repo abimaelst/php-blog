@@ -1,14 +1,18 @@
 <?php
 
+require 'Response.php';
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
     '/' => 'controllers/index.php',
     '/about' => 'controllers/about.php',
+    '/notes' => 'controllers/notes.php',
+    '/note' => 'controllers/note.php',
     '/contact' => 'controllers/contact.php',
 ];
 
-function abort($code = 404) {
+function abort($code = Response::NOT_FOUND) {
     http_response_code('404');
     require "views/$code.php";
     die();
